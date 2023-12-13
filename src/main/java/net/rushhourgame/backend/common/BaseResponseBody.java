@@ -2,7 +2,6 @@ package net.rushhourgame.backend.common;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import net.rushhourgame.backend.exception.ApplicationException;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

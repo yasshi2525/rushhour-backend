@@ -9,9 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.MissingResourceException;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public enum Message {
   SUCCESS,
   INVALID_REQUEST_BODY_ERROR,
