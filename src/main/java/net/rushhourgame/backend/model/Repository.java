@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class Repository {
-  private final Map<String, Long> lastIds = new HashMap<>();
-  private final Map<Long, RailNode> railNodes = new HashMap<>();
-  private final Map<Long, RailEdge> railEdges = new HashMap<>();
+  private final Map<String, RailNode> railNodes = new HashMap<>();
+  private final Map<String, RailEdge> railEdges = new HashMap<>();
 }

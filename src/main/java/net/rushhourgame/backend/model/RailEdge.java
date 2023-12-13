@@ -5,19 +5,34 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 @Getter
-public class RailEdge {
+public class RailEdge extends EdgeEntity {
+  private final String type = "RailEdge";
+
   @JsonIgnore
   private final Repository repo;
 
-  private final long id;
-  private final RailNode from;
-  private final RailNode to;
+  @JsonIgnore
+  private final RailNode departure;
 
-  public RailEdge(Repository repo, long id, RailNode from, RailNode to) {
+  @JsonIgnore
+  private final RailNode destination;
+
+  private final ReferedRailNode from;
+  private final ReferedRailNode to;
+
+  public RailEdge(Repository repo, String id, RailNode departure, RailNode destination) {
+    super(id, departure, destination);
     this.repo = repo;
-    this.id = id;
-    this.from = from;
-    this.to = to;
+    this.departure = departure;
+    this.destination = destination;
+    this.departure.getOutbound().put(id, this);
+    this.destination.getInbound().put(id, this);
+    this.from = departure.toRef();
+    this.to = destination.toRef();
     repo.getRailEdges().put(id, this);
+  }
+
+  public ReferedRailEdge toRef() {
+    return new ReferedRailEdge(id, departure.toRef(), destination.toRef());
   }
 }

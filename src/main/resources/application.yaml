@@ -1,0 +1,5 @@
+net.rushhourgame.backend:
+  model:
+    width: 2
+    height: 2
+    precision: 4

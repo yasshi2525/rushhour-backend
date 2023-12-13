@@ -1,6 +1,7 @@
 package net.rushhourgame.backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import net.rushhourgame.backend.controller.BuildRailwayController;
 import net.rushhourgame.backend.handler.HandlerFunctionBuilder;
 
 @Configuration
+@EnableConfigurationProperties(AppProperties.class)
 class AppConfig {
   @Autowired
   private HandlerFunctionBuilder builder;

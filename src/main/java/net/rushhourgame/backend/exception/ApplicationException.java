@@ -26,6 +26,6 @@ public class ApplicationException extends RuntimeException {
   }
 
   public String getLocalMessage(Locale locale) {
-    return MessageFormatter.arrayFormat(type.getLocalMessage(locale), args).getMessage();
+    return MessageFormatter.arrayFormat(type.getLocalizedMessage(locale), args).getMessage();
   }
 }
